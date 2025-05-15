@@ -6,18 +6,17 @@ class PlacesController < ApplicationController
   # render places/index view
   end
 
+  def show
+    # find a place
+      @place = Place.find_by({"id" => params["id"]})
+    # find entries within a place
+      @entries = Entry.where({"place_id" => @place["id"]})
+    end
+  
   def new
   # render view with new Place form
   end
   
-  def show
-  # find a place
-    @place = Place.find_by({"id" => params["id"]})
-  # find entries within a place
-    @entries = Entry.where({"place_id" => @place["id"]})
-  end
-
-
   def create
     # start with a new place
     @place = Place.new
@@ -29,14 +28,32 @@ class PlacesController < ApplicationController
   end
 
   def edit
-
+  # Find a specific place
+    @place = Place.find_by({"id" => params["id"]})
   end
 
   def update
+  # Find a specific place
+    @place = Place.find_by({"id" => params["id"]})
+    
+  # Assign user-entered form data to db
+    @place["name"] = params["name"]
 
+  #save the new Place
+    @place.save
+
+  #redirect the user
+    redirect_to "/places"
   end
 
   def destroy
+    #find the specific place
+    @place = Place.find_by({"id" => params["id"]})
 
+    #destroy the place row in db
+    @place.destroy
+
+    #redirect the user back to places
+    redirect_to "/places"
   end
 end

@@ -1,15 +1,19 @@
 <h1> <%= @place["name"]%> </h1>
 
 <ul>
-  <h2> <%= @entry["title"] %> </h2>
-  <p><%= @entry["occurred_on"]%></p>
-  <li><%= @entry["description"]%></li>
+<% for entry in @entries%>
+  <h2> <%= entry["title"] %> </h2>
+  <p> <%= entry["occurred_on"] %></p>
+  <p><%= entry["description"] %> </p>
+<% end%>
 </ul>
 
+<!-- Allow the user to generate a new entry for current place -->
 <p>
-  <a href="/entries/new">New post</a>
+<a href="/entries/new?place_id=<%= @place["id"]%>">New Post</a>
 </p>
 
+<!-- Allow user to go back to see all places -->
 <p>
-  <a href="/places">Back to places</a>
+<a href="/places">Back to Places</a>
 </p>
