@@ -27,25 +27,6 @@ class PlacesController < ApplicationController
     redirect_to "/places"
   end
 
-  def edit
-  # Find a specific place
-    @place = Place.find_by({"id" => params["id"]})
-  end
-
-  def update
-  # Find a specific place
-    @place = Place.find_by({"id" => params["id"]})
-    
-  # Assign user-entered form data to db
-    @place["name"] = params["name"]
-
-  #save the new Place
-    @place.save
-
-  #redirect the user
-    redirect_to "/places"
-  end
-
   def destroy
     #find the specific place
     @place = Place.find_by({"id" => params["id"]})
