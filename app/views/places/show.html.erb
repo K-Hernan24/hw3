@@ -13,11 +13,13 @@
 <a href="/entries/new?place_id=<%= @place["id"]%>">New Post</a>
 </p>
 
+<p></p>
 <!-- Allow user to go back to see all places -->
 <p>
 <a href="/places">Back to Places</a>
 </p>
 
+<p></p>
 <!-- Allow user to eliminate the place-->
 <form action="/places/<%= @place["id"]%>" method="post">
 <input type="hidden" name="_method" value="delete">
