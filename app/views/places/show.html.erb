@@ -1,11 +1,12 @@
 <h1> <%= @place["name"]%> </h1>
 
-<h2> Entries </h2>
 <ul>
 <% for entry in @entries%>
-  <h2> <%= @entry["title"] %> </h2>
-  <li> <%= @entry["occured_on"] %> </li>
-  <li> <%= @entry["description"] %> </li>
+  <h2> <%= entry["title"] %> </h2>
+  <p>
+    <%= entry["occurred_on"] %>
+  </p>
+  <li> <%= entry["description"] %> </li>
 <% end%>
 </ul>
 

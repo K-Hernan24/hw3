@@ -7,16 +7,21 @@
 <input type="text" name="title">
 <label for="description">Description</label>
 <input type="text" name="description">
-<label for="occured_on">Occured on</label>
-<input type="date" name="occured_on">
+<label for="occurred_on">Occurred on</label>
+<input type="date" name="occurred_on">
 </p>
 
 <!-- Transfer state from Place selection to entry generation -->
 <p>
 <label for="place_id">Place</label>
-<input type="text" name="place_id" value="<%= params["place_id"]%>">
+<input type="hidden" name="place_id" value="<%= params["place_id"]%>">
 </p>
 
 <button>Submit</button>
 
 </form>
+
+<p>
+<a href="/places/<%= params["place_id"]%>">Back to entries</a>
+</p>
+
