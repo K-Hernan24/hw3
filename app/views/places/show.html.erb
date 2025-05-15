@@ -18,14 +18,6 @@
 <a href="/places">Back to Places</a>
 </p>
 
-<!-- Allow user to edit the place-->
-<p>
-<form action="/places/<%= @place["id"]%>" method="post">
-<input type="hidden" name="_method" value="patch">
-<button>Edit Place</button>
-</form>
-</p>
-
 <!-- Allow user to eliminate the place-->
 <form action="/places/<%= @place["id"]%>" method="post">
 <input type="hidden" name="_method" value="delete">
